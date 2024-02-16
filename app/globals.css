@@ -53,6 +53,7 @@ nav.navbar{
 form p{
   text-align: center;
   padding-bottom: 1rem;
+  font-size: x-large;
 }
 
 .login label{
@@ -70,7 +71,19 @@ form p{
   margin-bottom: 1rem;
   border: none;
   border-radius: 0.5rem;
-  padding: 0.2rem ;
+  padding: 0.2rem 0.5rem;
   max-width: 400px;
+  font-weight: 300;
 }
 
+.form-link{
+  display: block;
+  font-size: small;
+}
+
+.login-btn{
+  background-color: crimson;
+  margin-top: 1rem;
+  border-radius: 0.5rem;
+  padding: 0.3rem 1rem;
+}
