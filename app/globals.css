@@ -6,9 +6,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Lavishly+Yours&display=swap');
 
 body {
-  background-color: rgb(40, 40, 40);
-  background: linear-gradient(to bottom, #F4002F, #8000ff), black;
-  background: linear-gradient(to bottom, #c30026, #4d0199), black;
+  background-image: radial-gradient(
+  circle at center -10%,
+  hsl(31, 100%, 59%) 5%,
+  hsl(346, 69%, 51%) 55%,
+  hsl(240deg 100% 20%) 100%
+);
   height: 100vh;
 }
 
@@ -44,6 +47,7 @@ nav.navbar{
 }
 
 .pixie{
+  display: flex;
   font-size: xx-large;
   padding: 10px;
   margin-left: 20px;
@@ -53,6 +57,36 @@ nav.navbar{
   padding: 13px;
 }
 /*Login*/
+
+.login{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-left{
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.login .pixie{
+  color: white;
+  font-size: 10rem;
+  flex-grow: 1; 
+  align-self: stretch;
+  padding: 0;
+
+}
+
+.login .intro{
+  color: white;
+  text-align: start;
+  padding: 0px 30px;
+  margin-left: 20px;
+}
+
 
 .login form{
   color: rgb(240, 240, 240);
@@ -65,10 +99,13 @@ nav.navbar{
   justify-content: center;
   align-items: center;
   padding: 1rem 3rem;
-  margin: 5rem 5rem;
+  margin: 5rem 7rem;
   -webkit-box-shadow:0px 0px 26px 0px #1b1b1b ;
   -moz-box-shadow:0px 0px 26px 0px #1b1b1b ;
   box-shadow:0px 0px 26px 0px #1b1b1b ;
+
+  flex-grow: 1;
+  align-self: stretch;
   
 }
 
