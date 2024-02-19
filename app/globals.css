@@ -8,6 +8,7 @@
 body {
   background-color: rgb(40, 40, 40);
   background: linear-gradient(to bottom, #F4002F, #8000ff), black;
+  background: linear-gradient(to bottom, #c30026, #4d0199), black;
   height: 100vh;
 }
 
@@ -25,7 +26,11 @@ nav.navbar{
   background-color: rgb(20, 20, 20, 1);
   display: flex;
   flex-direction: row;
-  justify-content: right;
+  justify-content: space-between;
+  align-items: center;
+  -webkit-box-shadow:0px 0px 26px 0px #1b1b1b ;
+  -moz-box-shadow:0px 0px 26px 0px #1b1b1b ;
+  box-shadow:0px 0px 26px 0px #1b1b1b ;
 }
 
 .nav-link {
@@ -38,6 +43,15 @@ nav.navbar{
   border-radius: 0.5rem;
 }
 
+.pixie{
+  font-size: xx-large;
+  padding: 10px;
+  margin-left: 20px;
+}
+
+.navbar-links{
+  padding: 13px;
+}
 /*Login*/
 
 .login form{
@@ -52,13 +66,25 @@ nav.navbar{
   align-items: center;
   padding: 1rem 3rem;
   margin: 5rem 5rem;
+  -webkit-box-shadow:0px 0px 26px 0px #1b1b1b ;
+  -moz-box-shadow:0px 0px 26px 0px #1b1b1b ;
+  box-shadow:0px 0px 26px 0px #1b1b1b ;
   
 }
 
-form p{
+form h1{
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   text-align: center;
   padding-bottom: 1rem;
   font-size: x-large;
+  padding-bottom: 0;
+}
+
+form h2{
+  text-align: center;
+  padding-bottom: 1rem;
+  font-size: medium;
+  padding-bottom: 20px;
 }
 
 .login label{

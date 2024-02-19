@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 
+
 const Login = () => {
   const [email, setEmail] = useState('');
   const [pass, setPass] = useState('');
@@ -9,7 +10,8 @@ const Login = () => {
   return (
     <div className='login'>
       <form>
-        <p className="login-intro">Welcome back!</p>
+        <h1 className="login-intro">Welcome back</h1>
+        <h2 className="login-intro-2">Login in to continue with the journey</h2>
         <div>
           <label htmlFor='email'>Email</label>
           <input type="email" className='email' value={email} onChange={(e)=>{setEmail(e.target.value)}} required/>
@@ -17,7 +19,7 @@ const Login = () => {
 
         <div>
           <label htmlFor='pass'>Password</label>
-          <input type="pass" className='pass' value={pass} onChange={(e)=>{setPass(e.target.value)}} required/>
+          <input type="password" className='pass' value={pass} onChange={(e)=>{setPass(e.target.value)}} required/>
 
           <div className='form-links'>
             <Link href='/register' className='form-link'>Register</Link>
