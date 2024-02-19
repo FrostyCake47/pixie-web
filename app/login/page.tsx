@@ -38,9 +38,8 @@ const Login = () => {
           </div>
         </div>
 
-        
-
         <button className='login-btn'>Login</button>
+        
       </form>
     </div>
 
