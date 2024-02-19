@@ -61,7 +61,7 @@ nav.navbar{
 .login{
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
   user-select: none;
   height: 90vh;
 }
@@ -78,14 +78,12 @@ nav.navbar{
   font-size: 10rem;
   flex-grow: 1; 
   align-self: stretch;
-  padding: 0;
-
+  margin: 0;
 }
 
 .login .intro{
   color: white;
   text-align: start;
-  margin-left: 5vw;
 }
 
 
@@ -102,10 +100,10 @@ nav.navbar{
   -moz-box-shadow:0px 0px 26px 0px #1b1b1b ;
   box-shadow:0px 0px 26px 0px #1b1b1b ;
 
-  flex-grow: 1;
   align-self: stretch;
 
-  margin: auto 10vw;
+  padding: 0 3vw;
+  margin-right: 5vw;
   height: 90vh;
   /*border-radius: 1rem;*/
 }
