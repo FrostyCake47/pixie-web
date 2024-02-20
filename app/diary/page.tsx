@@ -7,15 +7,15 @@ const Diary = () => {
     
     <div>
         <NavBar/>
-        <div className='flex bg-neutral-800 h-screen'>
-            <div className='px-5 bg-neutral-600'>
+        <div className='flex flex-row bg-neutral-800 h-screen'>
+            <div className='px-2 bg-neutral-600'>
                 <div>
                     <EntryBlock/>
                     <EntryBlock/>
                     <EntryBlock/>
                 </div>
             </div>
-            <div className='flex-1'>right</div>
+            <div className=''>right</div>
         </div>
     </div>
   )

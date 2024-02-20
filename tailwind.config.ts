@@ -16,6 +16,10 @@ const config: Config = {
       width: {
         '120': '120px',
       },
+      padding: {
+        '70' : '70px',
+      }
+      
     },
   },
   plugins: [],
