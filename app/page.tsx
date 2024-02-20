@@ -7,7 +7,7 @@ export default function Home() {
     <main>
       <NavBar/>
       <div className="main-content">
-        <Login/>
+        Home
       </div>
     </main>
   );

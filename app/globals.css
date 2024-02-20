@@ -155,7 +155,7 @@ form h2{
   border-radius: 0.5rem;
   padding: 0.3rem 0.5rem;
   max-width: 400px;
-  width: 18vw;
+  width: 10vw;
   font-weight: 400;
 }
 
@@ -181,8 +181,11 @@ form h2{
   margin-top: 1rem;
   border-radius: 0.5rem;
   padding: 0.3rem 1rem;
+}
 
-  -webkit-box-shadow: 0px 0px 9px 4px rgba(0,0,0,0.42);
-  -moz-box-shadow: 0px 0px 9px 4px rgba(0,0,0,0.42);
-  box-shadow: 0px 0px 9px 4px rgba(135, 135, 135, 0.42);
+/*DIARY*/
+
+.diary-home{
+  background-color: grey;
+  height: 100vh;
 }
