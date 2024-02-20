@@ -1,6 +1,7 @@
 import React from 'react';
 import NavBar from '../components/navbar';
 import EntryBlock from '../components/entryblock';
+import Entry from '../components/entry';
 
 const Diary = () => {
   return (
@@ -8,14 +9,14 @@ const Diary = () => {
     <div>
         <NavBar/>
         <div className='flex flex-row bg-neutral-800 h-screen'>
-            <div className='px-2 bg-neutral-600'>
-                <div>
-                    <EntryBlock/>
-                    <EntryBlock/>
-                    <EntryBlock/>
-                </div>
+            <div className='px-2 border-r-2 border-neutral-500'>
+                <EntryBlock/>
+                <EntryBlock/>
+                <EntryBlock/>
             </div>
-            <div className=''>right</div>
+            <div>
+              <Entry/>
+            </div>
         </div>
     </div>
   )
