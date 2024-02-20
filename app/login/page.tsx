@@ -42,7 +42,10 @@ const Login = () => {
         </div>
 
         <button className='login-btn'>Login</button>
-        <p className='pt-5'>Or continue with</p>
+
+        <div className='flex'>
+          <p className='pt-5 text-sm'>Or continue with</p>
+        </div>
         
         <div className='flex flex-row pt-6 px-5 place-content-evenly'>
           <FcGoogle className='size-10 mx-6'/>

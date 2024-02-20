@@ -146,14 +146,17 @@ form h2{
 }
 
 .login input{
-  color: rgb(21, 21, 21);
-  display: flex;
+  color: rgb(255, 255, 255);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: smaller;
+  background-color: rgba(255, 255, 255, 0.1);
   margin-bottom: 1rem;
-  border: none;
+  border: solid white 2px;
   border-radius: 0.5rem;
-  padding: 0.2rem 0.5rem;
+  padding: 0.3rem 0.5rem;
   max-width: 400px;
-  font-weight: 300;
+  width: 18vw;
+  font-weight: 400;
 }
 
 .form-links{
@@ -178,4 +181,8 @@ form h2{
   margin-top: 1rem;
   border-radius: 0.5rem;
   padding: 0.3rem 1rem;
+
+  -webkit-box-shadow: 0px 0px 9px 4px rgba(0,0,0,0.42);
+  -moz-box-shadow: 0px 0px 9px 4px rgba(0,0,0,0.42);
+  box-shadow: 0px 0px 9px 4px rgba(135, 135, 135, 0.42);
 }
