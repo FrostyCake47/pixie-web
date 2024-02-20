@@ -2,6 +2,9 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import {Lavishly_Yours } from "next/font/google";
+import { FcGoogle } from "react-icons/fc";
+import { FaApple } from "react-icons/fa";
+
 
 
 const LavishlyYours = Lavishly_Yours({weight: "400", subsets: ["latin"]});
@@ -39,7 +42,12 @@ const Login = () => {
         </div>
 
         <button className='login-btn'>Login</button>
+        <p className='pt-5'>Or continue with</p>
         
+        <div className='flex flex-row pt-6 px-5 place-content-evenly'>
+          <FcGoogle className='size-10 mx-6'/>
+          <FaApple className='size-10 mx-6'/>
+        </div>
       </form>
     </div>
 
