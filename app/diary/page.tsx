@@ -10,9 +10,9 @@ const Diary = () => {
         <NavBar/>
         <div className='flex flex-row bg-neutral-800 h-screen'>
             <div className='px-2 border-r-2 border-neutral-500'>
-                <EntryBlock/>
-                <EntryBlock/>
-                <EntryBlock/>
+                <EntryBlock title={"mwaa"}/>
+                <EntryBlock title={"waw"}/>
+                <EntryBlock title={"aaa"}/>
             </div>
             <div>
               <Entry/>
