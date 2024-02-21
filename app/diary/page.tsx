@@ -7,7 +7,6 @@ const Diary = () => {
   return (
     
     <div>
-        <NavBar/>
         <div className='flex flex-row bg-neutral-800 h-screen'>
             <div className='px-2 border-r-2 border-neutral-500'>
                 <EntryBlock title={"mwaa"}/>
