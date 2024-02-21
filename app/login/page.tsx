@@ -4,8 +4,7 @@ import Link from 'next/link';
 import {Lavishly_Yours } from "next/font/google";
 import { FcGoogle } from "react-icons/fc";
 import { FaApple } from "react-icons/fa";
-import NavBar from '../components/navbar';
-import { AuthContextProvider, UserAuth } from '../context/AuthContext';
+import { UserAuth } from '../context/AuthContext';
 
 const LavishlyYours = Lavishly_Yours({weight: "400", subsets: ["latin"]});
 
