@@ -5,7 +5,7 @@ import {Lavishly_Yours } from "next/font/google";
 import { FcGoogle } from "react-icons/fc";
 import { FaApple } from "react-icons/fa";
 import NavBar from '../components/navbar';
-import { AuthContextProvider } from '../context/AuthContext';
+import { AuthContextProvider, UserAuth } from '../context/AuthContext';
 
 const LavishlyYours = Lavishly_Yours({weight: "400", subsets: ["latin"]});
 
@@ -13,6 +13,18 @@ const LavishlyYours = Lavishly_Yours({weight: "400", subsets: ["latin"]});
 const Login = () => {
   const [email, setEmail] = useState('');
   const [pass, setPass] = useState('');
+
+  const {user, googleSignIn, logOut} = UserAuth();
+  console.log(user);
+
+  const handleSignIn = async () => {
+    try{
+      await googleSignIn()
+    }
+    catch (error){
+      console.log(error)
+    }
+  }
 
   return (
     <div>
@@ -49,7 +61,7 @@ const Login = () => {
             </div>
             
             <div className='flex flex-row pt-6 px-5 place-content-evenly'>
-              <FcGoogle className='size-10 mx-6'/>
+              <FcGoogle onClick={handleSignIn} className='size-10 mx-6'/>
               <FaApple className='size-10 mx-6'/>
             </div>
           </form>

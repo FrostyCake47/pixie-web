@@ -8,8 +8,17 @@ import { UserAuth } from '../context/AuthContext';
 const LavishlyYours = Lavishly_Yours({weight: "400", subsets: ["latin"]});
 
 const NavBar = () => {
-  const {user} = UserAuth();
+  const {user, googleSignIn, logOut} = UserAuth();
   console.log(user);
+
+  const handleSignIn = async () => {
+    try{
+      await googleSignIn();
+    }
+    catch (error){
+      console.log(error);
+    }
+  }
 
   return (
     <nav className="navbar">
