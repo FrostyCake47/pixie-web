@@ -3,6 +3,7 @@ import { MdModeEdit } from "react-icons/md";
 import { MdDelete } from "react-icons/md";
 
 const Entry = () => {
+  /*const {title, date, time, content} = props;*/
   return (
     <div className='flex flex-col px-10 py-8'>
         <div className='flex items-start justify-between'>

@@ -4,8 +4,11 @@ import EntryBlock from '../components/entryblock';
 import Entry from '../components/entry';
 
 const Diary = () => {
+  const handleSelection = () => {
+
+  }
+
   return (
-    
     <div>
         <div className='flex flex-row bg-neutral-800 h-screen'>
             <div className='px-2 border-r-2 border-neutral-500'>
