@@ -9,8 +9,13 @@ export const AuthContextProvider = ({children}) => {
     const [user, setUser] = useState('akash');
 
     const googleSignIn = () => {
-        const provider =  new GoogleAuthProvider();
-        signInWithPopup(auth, provider);
+        try{
+            const provider =  new GoogleAuthProvider();
+            signInWithPopup(auth, provider);
+        }
+        catch(e){
+            console.log(e)
+        }
     }
     
     const logOut = () => {

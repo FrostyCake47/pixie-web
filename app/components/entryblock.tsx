@@ -4,7 +4,7 @@ const EntryBlock = (props: { title: String; }) => {
   const {title} = props;
 
   return (
-    <div className='flex flex-row px-[1rem] py-5 my-3 rounded-[10px] items-start w-[350px] justify-between bg-gradient-to-r from-zinc-600 to-zinc-800 .shadow-lg'>
+    <div className='flex flex-row px-[1rem] py-5 my-3 rounded-[10px] items-start w-[350px] justify-between bg-gradient-to-r from-zinc-600 to-zinc-800 shadow-lg shadow-neutral-800/50 transition ease-in-out duration-300 hover:from-zinc-500 hover:to-zinc-700'>
         <div>
           <h3 className='text-[18px] text-white'>{title}</h3>
           <p className='text-[12px] font-[400] text-neutral-400'>Subtitle thats going to be pretty long</p>
