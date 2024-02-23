@@ -1,9 +1,11 @@
-import React from 'react';
+"use client";
+import React, { useState } from 'react';
 import NavBar from '../components/navbar';
 import EntryBlock from '../components/entryblock';
 import Entry from '../components/entry';
 
 const Diary = () => {
+  const [entry, setEntry] = useState(null);
   const handleSelection = () => {
 
   }
