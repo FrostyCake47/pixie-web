@@ -5,11 +5,13 @@ import {Lavishly_Yours } from "next/font/google";
 import { FcGoogle } from "react-icons/fc";
 import { FaApple } from "react-icons/fa";
 import { UserAuth } from '../context/AuthContext';
+import { useRouter } from 'next/navigation';
 
 const LavishlyYours = Lavishly_Yours({weight: "400", subsets: ["latin"]});
 
 
 const Login = () => {
+  const router = useRouter();
   const [email, setEmail] = useState('');
   const [pass, setPass] = useState('');
 
@@ -18,10 +20,11 @@ const Login = () => {
 
   const handleSignIn = async () => {
     try{
-      await googleSignIn()
+      await googleSignIn();
+      router.push('/diary');
     }
     catch (error){
-      console.log(error)
+      console.log(error);
     }
   }
 

@@ -8,10 +8,10 @@ const AuthContext = createContext()
 export const AuthContextProvider = ({children}) => {
     const [user, setUser] = useState(null);
 
-    const googleSignIn = () => {
+    const googleSignIn = async () => {
         try{
             const provider =  new GoogleAuthProvider();
-            signInWithPopup(auth, provider);
+            await signInWithPopup(auth, provider);
         }
         catch(e){
             console.log(e)

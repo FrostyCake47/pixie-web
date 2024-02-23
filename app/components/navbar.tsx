@@ -5,17 +5,21 @@ import {Lavishly_Yours } from "next/font/google";
 import { UserAuth } from '../context/AuthContext';
 import { DiVim } from 'react-icons/di';
 import ProfileIcon from './profileIcon';
+import { useRouter } from 'next/navigation';
 
 
 const LavishlyYours = Lavishly_Yours({weight: "400", subsets: ["latin"]});
 
+
 const NavBar = () => {
   const {user, googleSignIn, logOut} = UserAuth();
+  const router = useRouter();
   console.log(user);
 
   const handleSignIn = async () => {
     try{
       await googleSignIn();
+      router.push('/diary')
     }
     catch (error){
       console.log(error);
@@ -25,6 +29,8 @@ const NavBar = () => {
   const handleSignOut = async () => {
     try{
       await logOut();
+      router.push('/login')
+      console.log('logged out')
     }
     catch(e){
       console.log(e);
@@ -52,9 +58,8 @@ const NavBar = () => {
               <Link href='/diary' className="nav-link">Diary</Link>
               <Link href='/' className="nav-link">Home</Link>
               <Link href='/about' className="nav-link">About</Link>
-              <button onClick={handleSignOut} className='nav-link'>Sign Out</button>
               <div className=''>
-                <ProfileIcon photoURL={user.photoURL}/>
+                <ProfileIcon photoURL={user.photoURL} displayName={user.displayName} signOut={handleSignOut}/>
               </div>
             </div>)}
             
