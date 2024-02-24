@@ -5,36 +5,58 @@ import EntryBlock from '../components/entryblock';
 import Entry from '../components/entry';
 import { UserAuth } from '../context/AuthContext';
 import { collection, addDoc, getDoc, query, onSnapshot, where } from 'firebase/firestore';
+import { doc, setDoc } from "firebase/firestore";
 import { db } from '../firebase';
 
 
 const Diary = () => {
   const [entry, setEntry] = useState(null);
-  const [entryList, setEntryList] = useState([])
+  const [entryList, setEntryList] = useState([]);
+  const [idTracker, setIdTracker] = useState(0);
   const {user} = UserAuth();
   if(user) console.log(user.uid);
 
   const handleSelection = () => {
   }
 
-  useEffect(() => {
+  async function getUser() {
+    const ref = doc(db, "users", user.uid);
+    const userDoc = await getDoc(ref);
+    return userDoc.data();
+  }
+
+  useEffect( () => {
     if(user){
-      console.log("currently in useEffect");
-      const q = query(collection(db, 'users'), where('uid', '==', user.uid));
+      /*console.log("currently in useEffect");
+      console.log(user.uid + " current useriD");
+      
+      const q = query(collection(db, 'users'), where("id", "==", user.uid));
       const unsubscribe = onSnapshot(q, (querySnaphsot) => {
         querySnaphsot.forEach((doc) => {
           console.log(doc.data());
-          console.log("got the data");
-        });
-        console.log(user)
-        console.log("got the user");
+      });
+
+      })*/
+
+      /*getUser().then((userData) => {
+        console.log(userData);
+        setEntryList(userData!.entryblock);
+      });
+
+      console.log(entryList);*/
+
+      const data = getUser();
+      data.then((userData) => {
+        if(userData){
+          console.log("idTracker " + userData.idtracker);
+
+          const valuesArray = Object.values(userData.entryblocks).map(entry => entry);
+          console.log(valuesArray);
+        }
       })
+      
     }
-    
-
   }, []);
-
-
 
   return (
     <div>
