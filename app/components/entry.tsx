@@ -13,11 +13,12 @@ interface EntryBlockDetails{
 }
 
 
-const Entry = (props: { entry: EntryBlockDetails, handleSelection:Function}) => {
-  const {entry, handleSelection} = props;
+const Entry = (props: { entry: EntryBlockDetails}) => {
+  const {entry} = props;
 
   return (
-    <div onClick={handleSelection(entry.id)} className='flex flex-col px-10 py-8'>
+    entry ? (
+      <div className='flex flex-col px-10 py-8'>
         <div className='flex items-start justify-between'>
             <div>
                 <h1 className='text-white text-[30px]'>{entry.title}</h1>
@@ -30,6 +31,10 @@ const Entry = (props: { entry: EntryBlockDetails, handleSelection:Function}) => 
         </div>
         <p className='text-neutral-200 py-[30px]'>{entry.content}</p>
     </div>
+    ) : (
+      <div>empty</div>
+    )
+    
   )
 }
 

@@ -37,7 +37,15 @@ const Diary = () => {
   if(user) console.log(user.uid);
 
   const handleSelection = (id:number) => {
-    setSelectedEntry(entryList[id]);
+    /*const _newEntryList = entryList.filter((entry) => {entry.id == id});*/
+    for(var i=0; i<entryList.length; i++){
+      if(entryList[i].id == id) setSelectedEntry(entryList[i]);
+    }
+
+    /*console.log(_newEntryList);
+    setSelectedEntry(_newEntryList[0]);*/
+    console.log(id);
+    console.log(entryList[id]);
   }
 
   async function getUser() {
@@ -51,16 +59,16 @@ const Diary = () => {
       const data = getUser();
       data.then((userData) => {
         if(userData){
-          console.log("idTracker " + userData.idtracker);
+          /*console.log("idTracker " + userData.idtracker);*/
           const _arr: EntryBlockDetails[] = Object.keys(userData.entryblocks).map(key => userData.entryblocks[key])
           setIdTracker(userData.idtracker);
           setEntryList(_arr);
 
-          console.log(_arr);
+          /*console.log(_arr);*/
         }
       })
     }
-  }, []);
+  }, [user]);
 
   return (
     <div>
@@ -68,11 +76,12 @@ const Diary = () => {
           <div className='flex flex-row bg-neutral-800 h-screen max-h-[calc(100vh-50px)]'>
             <div className='px-2 border-r-2 border-neutral-500'>
                 {entryList.map((entry) => {
-                  return <EntryBlock entry={entry}></EntryBlock>
+                  console.log(entry)
+                  return <EntryBlock entry={entry} handleSelection={handleSelection}></EntryBlock>
                 })}
             </div>
             <div>
-              <Entry entry={selectedEntry} handleSelection={handleSelection} />
+              <Entry entry={selectedEntry} />
             </div>
           </div>
       ) : (
