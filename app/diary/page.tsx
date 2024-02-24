@@ -30,13 +30,14 @@ const Diary = () => {
     day:'day'
   };
 
-  const [entry, setEntry] = useState(initialEntry);
+  const [selectedEntry, setSelectedEntry] = useState(initialEntry);
   const [entryList, setEntryList] = useState([initialEntry]);
   const [idTracker, setIdTracker] = useState(0);
   const {user} = UserAuth();
   if(user) console.log(user.uid);
 
-  const handleSelection = () => {
+  const handleSelection = (id:number) => {
+    setSelectedEntry(entryList[id]);
   }
 
   async function getUser() {
@@ -71,7 +72,7 @@ const Diary = () => {
                 })}
             </div>
             <div>
-              <Entry/>
+              <Entry entry={selectedEntry} handleSelection={handleSelection} />
             </div>
           </div>
       ) : (
