@@ -1,17 +1,27 @@
 import React from 'react'
 
-const EntryBlock = (props: { title: String; }) => {
-  const {title} = props;
+interface EntryBlockDetails{
+  id:number,
+  title:string,
+  subtitle:string,
+  content:string,
+  date:string,
+  time:string,
+  day:string,
+}
+
+const EntryBlock = (props: { entry: EntryBlockDetails}) => {
+  const {entry} = props;
 
   return (
     <div className='flex flex-row px-[1rem] py-5 my-3 rounded-[10px] items-start w-[350px] justify-between bg-gradient-to-r from-zinc-600 to-zinc-800 shadow-lg shadow-neutral-800/50 transition ease-in-out duration-300 hover:from-zinc-500 hover:to-zinc-700'>
         <div>
-          <h3 className='text-[18px] text-white'>{title}</h3>
-          <p className='text-[12px] font-[400] text-neutral-400'>Subtitle thats going to be pretty long</p>
+          <h3 className='text-[18px] text-white'>{entry.title}</h3>
+          <p className='text-[12px] font-[400] text-neutral-400'>{entry.content}</p>
         </div>
         <div className='flex flex-col text-[10px] text-neutral-200 items-center justify-stretch'>
-          <p className='py-[4px]'>5 Wed</p>
-          <p className='py-[4px]'>2:30 pm</p>
+          <p className='py-[4px]'>{entry.date + " " + entry.day}</p>
+          <p className='py-[4px]'>{entry.time}</p>
         </div>
     </div>
   )
