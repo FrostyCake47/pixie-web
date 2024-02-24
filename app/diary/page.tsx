@@ -11,7 +11,7 @@ import { db } from '../firebase';
 
 const Diary = () => {
   const [entry, setEntry] = useState(null);
-  const [entryList, setEntryList] = useState([]);
+  const [entryList, setEntryList] = useState([{}]);
   const [idTracker, setIdTracker] = useState(0);
   const {user} = UserAuth();
   if(user) console.log(user.uid);
@@ -49,12 +49,11 @@ const Diary = () => {
       data.then((userData) => {
         if(userData){
           console.log("idTracker " + userData.idtracker);
-
-          const valuesArray = Object.values(userData.entryblocks).map(entry => entry);
-          console.log(valuesArray);
+          const _arr = Object.keys(userData.entryblocks).map(key => userData.entryblocks[key])
+          setIdTracker(userData.idtracker);
+          setEntryList(_arr);
         }
       })
-      
     }
   }, []);
 
@@ -66,6 +65,7 @@ const Diary = () => {
                 <EntryBlock title={"mwaa"}/>
                 <EntryBlock title={"waw"}/>
                 <EntryBlock title={"aaa"}/>
+                <button onClick={() => {console.log(entryList)}}>print stuff</button>
             </div>
             <div>
               <Entry/>
