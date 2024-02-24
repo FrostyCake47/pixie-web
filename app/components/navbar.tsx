@@ -3,7 +3,6 @@ import Link from 'next/link'
 import React from 'react'
 import {Lavishly_Yours } from "next/font/google";
 import { UserAuth } from '../context/AuthContext';
-import { DiVim } from 'react-icons/di';
 import ProfileIcon from './profileIcon';
 import { useRouter } from 'next/navigation';
 

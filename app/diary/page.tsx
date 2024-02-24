@@ -1,16 +1,40 @@
 "use client";
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import NavBar from '../components/navbar';
 import EntryBlock from '../components/entryblock';
 import Entry from '../components/entry';
 import { UserAuth } from '../context/AuthContext';
+import { collection, addDoc, getDoc, query, onSnapshot, where } from 'firebase/firestore';
+import { db } from '../firebase';
+
 
 const Diary = () => {
   const [entry, setEntry] = useState(null);
+  const [entryList, setEntryList] = useState([])
   const {user} = UserAuth();
+  if(user) console.log(user.uid);
+
   const handleSelection = () => {
-  
   }
+
+  useEffect(() => {
+    if(user){
+      console.log("currently in useEffect");
+      const q = query(collection(db, 'users'), where('uid', '==', user.uid));
+      const unsubscribe = onSnapshot(q, (querySnaphsot) => {
+        querySnaphsot.forEach((doc) => {
+          console.log(doc.data());
+          console.log("got the data");
+        });
+        console.log(user)
+        console.log("got the user");
+      })
+    }
+    
+
+  }, []);
+
+
 
   return (
     <div>

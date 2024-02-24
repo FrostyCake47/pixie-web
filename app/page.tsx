@@ -11,7 +11,6 @@ const LavishlyYours = Lavishly_Yours({weight: "400", subsets: ["latin"]});
 export default function Home() {
   return (
     <main>
-        {/*<NavBar/>*/}
         <div className="main-content">
           <div className='login'>
             <div className='login-left'>
