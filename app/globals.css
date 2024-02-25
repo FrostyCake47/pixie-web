@@ -202,13 +202,13 @@ form h2{
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #88888800;
+  background: #8888882e;
   border-radius: 5px;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #55555500;
+  background: #55555572;
 }
 
 /*pixie diary*/

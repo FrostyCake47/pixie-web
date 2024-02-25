@@ -19,17 +19,17 @@ const Entry = (props: { entry: EntryBlockDetails}) => {
 
   return (
       <div className='flex flex-col px-10 py-8'>
-        <div className='flex items-start justify-between'>
+        <div className='flex justify-between item-center'>
             <div>
                 <h1 className='text-white text-[30px]'>{entry.title}</h1>
                 <p className='text-neutral-400'>{entry.date} {entry.day} | {entry.time}</p>
             </div>
-            <div className='flex text-white text-[1.5rem] py-4 fixed right-0 mx-5'>
+            <div className='flex text-white text-[1.5rem] py-4 right-0 mx-5 fixed'>
                 <MdModeEdit className='mx-5'/>
                 <MdDelete className='mx-5'/>
             </div>
         </div>
-        <p className='text-neutral-200 py-[30px]'>{entry.content}</p>
+        <p className='text-neutral-200 py-[30px]'>{entry.title}</p>
     </div>
   )
 }

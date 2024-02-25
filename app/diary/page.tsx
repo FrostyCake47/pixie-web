@@ -73,7 +73,7 @@ const Diary = () => {
     <div>
         {user ? (
           <div className='flex flex-row bg-neutral-800 h-screen max-h-[calc(100vh-50px)]'>
-            <div className='px-2 border-r-2 border-neutral-500 overflow-y-scroll min-w-[380px]'>
+            <div className='px-2  border-neutral-500 overflow-y-scroll min-w-[380px]'>
                 {entryList.map((entry) => {
                   console.log(entry)
                   return <EntryBlock entry={entry} handleSelection={handleSelection}></EntryBlock>
@@ -81,7 +81,7 @@ const Diary = () => {
             </div>
 
             {selectedEntry.id ? 
-            (<div className=''>
+            (<div className='overflow-y-scroll'>
               <Entry entry={selectedEntry} />
             </div>) : 
             (
