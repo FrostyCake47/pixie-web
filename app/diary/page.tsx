@@ -37,6 +37,8 @@ const Diary = () => {
   const [selectedEntry, setSelectedEntry] = useState(initialEntry);
   const [entryList, setEntryList] = useState([initialEntry]);
   const [idTracker, setIdTracker] = useState(0);
+  
+
   const {user} = UserAuth();
   if(user) console.log(user.uid);
 
@@ -44,8 +46,9 @@ const Diary = () => {
     for(var i=0; i<entryList.length; i++){
       if(entryList[i].id == id) setSelectedEntry(entryList[i]);
     }
-
   }
+
+
 
   async function getUser() {
     const ref = doc(db, "users", user.uid);

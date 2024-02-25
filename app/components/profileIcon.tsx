@@ -12,7 +12,7 @@ const ProfileIcon = (props: { photoURL: string, displayName: string, signOut: Fu
                 setIsVisible(!isVisible)}}/>
 
             <div>
-                <ul className={`absolute right-0 mt-2 px-10 mx-1 bg-neutral-900 rounded shadow-md ${
+                <ul className={`absolute right-0 mt-2 px-10 mx-1 bg-neutral-900 rounded shadow-md z-10 ${
                     isVisible ? 'block' : 'hidden'}`}>
                     <li>{displayName}</li>
                     <li onClick={() => {signOut()}} className='nav-link'>Sign Out</li>
