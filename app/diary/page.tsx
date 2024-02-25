@@ -37,15 +37,10 @@ const Diary = () => {
   if(user) console.log(user.uid);
 
   const handleSelection = (id:number) => {
-    /*const _newEntryList = entryList.filter((entry) => {entry.id == id});*/
     for(var i=0; i<entryList.length; i++){
       if(entryList[i].id == id) setSelectedEntry(entryList[i]);
     }
 
-    /*console.log(_newEntryList);
-    setSelectedEntry(_newEntryList[0]);*/
-    console.log(id);
-    console.log(entryList[id]);
   }
 
   async function getUser() {
@@ -74,13 +69,13 @@ const Diary = () => {
     <div>
         {user ? (
           <div className='flex flex-row bg-neutral-800 h-screen max-h-[calc(100vh-50px)]'>
-            <div className='px-2 border-r-2 border-neutral-500'>
+            <div className='px-2 border-r-2 border-neutral-500 overflow-y-scroll min-w-[380px]'>
                 {entryList.map((entry) => {
                   console.log(entry)
                   return <EntryBlock entry={entry} handleSelection={handleSelection}></EntryBlock>
                 })}
             </div>
-            <div>
+            <div className=''>
               <Entry entry={selectedEntry} />
             </div>
           </div>

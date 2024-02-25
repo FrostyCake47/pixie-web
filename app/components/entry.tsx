@@ -1,3 +1,4 @@
+import { Lavishly_Yours } from 'next/font/google';
 import React from 'react'
 import { MdModeEdit } from "react-icons/md";
 import { MdDelete } from "react-icons/md";
@@ -12,19 +13,20 @@ interface EntryBlockDetails{
   day:string,
 }
 
+const LavishlyYours = Lavishly_Yours({weight: "400", subsets: ["latin"]});
 
 const Entry = (props: { entry: EntryBlockDetails}) => {
   const {entry} = props;
 
   return (
-    entry ? (
+    entry.id ? (
       <div className='flex flex-col px-10 py-8'>
         <div className='flex items-start justify-between'>
             <div>
                 <h1 className='text-white text-[30px]'>{entry.title}</h1>
                 <p className='text-neutral-400'>{entry.date} {entry.day} | {entry.time}</p>
             </div>
-            <div className='flex text-white text-[1.5rem] py-4'>
+            <div className='flex text-white text-[1.5rem] py-4 fixed right-0 mx-5'>
                 <MdModeEdit className='mx-5'/>
                 <MdDelete className='mx-5'/>
             </div>
@@ -32,7 +34,11 @@ const Entry = (props: { entry: EntryBlockDetails}) => {
         <p className='text-neutral-200 py-[30px]'>{entry.content}</p>
     </div>
     ) : (
-      <div>empty</div>
+      <div className='flex justify-center items-center'>
+        <div className={LavishlyYours.className}>
+          <h1 className="pixie">Pixie</h1>
+        </div>
+      </div>
     )
     
   )
