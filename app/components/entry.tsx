@@ -13,13 +13,11 @@ interface EntryBlockDetails{
   day:string,
 }
 
-const LavishlyYours = Lavishly_Yours({weight: "400", subsets: ["latin"]});
 
 const Entry = (props: { entry: EntryBlockDetails}) => {
   const {entry} = props;
 
   return (
-    entry.id ? (
       <div className='flex flex-col px-10 py-8'>
         <div className='flex items-start justify-between'>
             <div>
@@ -33,14 +31,6 @@ const Entry = (props: { entry: EntryBlockDetails}) => {
         </div>
         <p className='text-neutral-200 py-[30px]'>{entry.content}</p>
     </div>
-    ) : (
-      <div className='flex justify-center items-center'>
-        <div className={LavishlyYours.className}>
-          <h1 className="pixie">Pixie</h1>
-        </div>
-      </div>
-    )
-    
   )
 }
 

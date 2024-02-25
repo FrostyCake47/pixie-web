@@ -210,3 +210,17 @@ form h2{
 ::-webkit-scrollbar-thumb:hover {
   background: #55555500;
 }
+
+/*pixie diary*/
+
+.pixie-diary{
+  font-size: 120px;
+  background: linear-gradient(
+    to bottom,
+    hsl(31, 100%, 59%) 0%,
+    hsl(346, 69%, 51%) 50%,
+    hsl(240, 100%, 20%) 100%
+  );
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+}

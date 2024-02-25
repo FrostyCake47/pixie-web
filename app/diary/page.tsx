@@ -7,6 +7,7 @@ import { UserAuth } from '../context/AuthContext';
 import { collection, addDoc, getDoc, query, onSnapshot, where } from 'firebase/firestore';
 import { doc, setDoc } from "firebase/firestore";
 import { db } from '../firebase';
+import { Lavishly_Yours } from 'next/font/google';
 
 
 interface EntryBlockDetails{
@@ -18,6 +19,9 @@ interface EntryBlockDetails{
   time:string,
   day:string,
 }
+
+const LavishlyYours = Lavishly_Yours({weight: "400", subsets: ["latin"]});
+
 
 const Diary = () => {
   const initialEntry: EntryBlockDetails = {
@@ -75,9 +79,19 @@ const Diary = () => {
                   return <EntryBlock entry={entry} handleSelection={handleSelection}></EntryBlock>
                 })}
             </div>
-            <div className=''>
+
+            {selectedEntry.id ? 
+            (<div className=''>
               <Entry entry={selectedEntry} />
-            </div>
+            </div>) : 
+            (
+              <div className='px-[calc((100vw-650px)/2)] flex flex-col justify-center items-center'>
+                <div className={LavishlyYours.className}>
+                   <h1 className="pixie-diary">Pixie</h1>
+                 </div>
+              </div>
+            )}
+            
           </div>
       ) : (
         <div className='flex flex-col bg-neutral-800 h-[calc(100vh-50px)] justify-center items-center'>
