@@ -80,7 +80,7 @@ const Diary = () => {
             </div>
           </div>
       ) : (
-        <div className='flex flex-col bg-neutral-800 h-[calc(100vh-50)] justify-center items-center'>
+        <div className='flex flex-col bg-neutral-800 h-[calc(100vh-50px)] justify-center items-center'>
           <div className='text-white text-3xl'>Please login to access this page</div>
         </div>
       )}
