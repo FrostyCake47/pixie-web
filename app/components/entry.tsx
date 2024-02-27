@@ -53,7 +53,7 @@ const Entry = (props: { entry: EntryBlockDetails}) => {
           <form>
             <div className='flex justify-between item-center'>
                 <div>
-                    <input type='text' value={title} className='text-white text-[30px] bg-transparent border-none' onChange={(e) => {setTitle(e.target.value)}}/>
+                    <input type='text' value={title} className='text-white text-[30px] bg-transparent border-none focus:outline-none w-[calc(100vw-450px)]' onChange={(e) => {setTitle(e.target.value)}}/>
                     <p className='text-neutral-400'>{entry.date} {entry.day} | {entry.time}</p>
                 </div>
                 <div className='flex text-white text-[1.5rem] py-4 right-0 mx-5 fixed'>
@@ -61,7 +61,7 @@ const Entry = (props: { entry: EntryBlockDetails}) => {
                     <MdDelete className='mx-5'/>
                 </div>
             </div>
-            <input type='text' value={content} onChange={(e) => {setContent(e.target.value)}} className='text-neutral-200 py-[30px] bg-transparent border-none'/>
+            <textarea value={content} onChange={(e) => {setContent(e.target.value)}} className='text-neutral-200 py-[30px] bg-transparent border-none focus:outline-none w-[calc(100vw-450px)]'/>
           </form>
       </div>)
       
