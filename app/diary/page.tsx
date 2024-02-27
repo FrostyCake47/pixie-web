@@ -61,12 +61,9 @@ const Diary = () => {
       const data = getUser();
       data.then((userData) => {
         if(userData){
-          /*console.log("idTracker " + userData.idtracker);*/
           const _arr: EntryBlockDetails[] = Object.keys(userData.entryblocks).map(key => userData.entryblocks[key])
           setIdTracker(userData.idtracker);
           setEntryList(_arr);
-
-          /*console.log(_arr);*/
         }
       })
     }

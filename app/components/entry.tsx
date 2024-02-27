@@ -1,6 +1,6 @@
 "use client";
 import { Lavishly_Yours } from 'next/font/google';
-import React from 'react'
+import React, { useEffect } from 'react'
 import { MdCheck, MdModeEdit } from "react-icons/md";
 import { MdDelete } from "react-icons/md";
 import { FaCheck } from "react-icons/fa6";
@@ -20,14 +20,25 @@ interface EntryBlockDetails{
 const Entry = (props: { entry: EntryBlockDetails}) => {
   const {entry} = props;
   const [isEditable, setIsEditable] = useState(false);
-  const [editedEntry, setEditedEntry] = useState(entry);
+
+  const [title, setTitle] = useState(entry.title);
+  const [subtitle, setSubtitle] = useState(entry.subtitle);
+  const [content, setContent] = useState(entry.content);
+  const [date, setDate] = useState(entry.date);
+  const [time, setTime] = useState(entry.time);
+  const [day, setDay] = useState(entry.day);
+
+  useEffect(() => {
+    setTitle(entry.title);
+    setContent(entry.content);
+  }, [entry]);
 
   return (
       !isEditable ? (
         <div className='flex flex-col px-10 py-8'>
           <div className='flex justify-between item-center'>
               <div>
-                  <h1 className='text-white text-[30px]'>{entry.title}</h1>
+                  <h1 className='text-white text-[30px]'>{title}</h1>
                   <p className='text-neutral-400'>{entry.date} {entry.day} | {entry.time}</p>
               </div>
               <div className='flex text-white text-[1.5rem] py-4 right-0 mx-5 fixed'>
@@ -35,14 +46,14 @@ const Entry = (props: { entry: EntryBlockDetails}) => {
                   <MdDelete className='mx-5'/>
               </div>
           </div>
-          <p className='text-neutral-200 py-[30px]'>{entry.title}</p>
+          <p className='text-neutral-200 py-[30px]'>{content}</p>
       </div>
       ) : (
         <div className='flex flex-col px-10 py-8'>
           <form>
             <div className='flex justify-between item-center'>
                 <div>
-                    <input type='text' value={editedEntry.title} className='text-white text-[30px] bg-transparent border-none' onChange={(e) => {editedEntry.title = e.target.value; setEditedEntry(editedEntry);}}/>
+                    <input type='text' value={title} className='text-white text-[30px] bg-transparent border-none' onChange={(e) => {setTitle(e.target.value)}}/>
                     <p className='text-neutral-400'>{entry.date} {entry.day} | {entry.time}</p>
                 </div>
                 <div className='flex text-white text-[1.5rem] py-4 right-0 mx-5 fixed'>
@@ -50,7 +61,7 @@ const Entry = (props: { entry: EntryBlockDetails}) => {
                     <MdDelete className='mx-5'/>
                 </div>
             </div>
-            <p className='text-neutral-200 py-[30px]'>{entry.title}</p>
+            <input type='text' value={content} onChange={(e) => {setContent(e.target.value)}} className='text-neutral-200 py-[30px] bg-transparent border-none'/>
           </form>
       </div>)
       
