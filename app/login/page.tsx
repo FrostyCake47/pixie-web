@@ -63,8 +63,8 @@ const Login = () => {
             </div>
             
             <div className='flex flex-row pt-6 px-5 place-content-evenly'>
-              <FcGoogle onClick={handleSignIn} className='size-10 mx-6'/>
-              <FaApple className='size-10 mx-6'/>
+              <FcGoogle onClick={handleSignIn} className='size-10 mx-6 cursor-pointer'/>
+              <FaApple className='size-10 mx-6 cursor-pointer'/>
             </div>
           </form>
         </div>
