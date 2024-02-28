@@ -17,8 +17,8 @@ interface EntryBlockDetails{
 }
 
 
-const Entry = (props: { entry: EntryBlockDetails}) => {
-  const {entry} = props;
+const Entry = (props: { entry: EntryBlockDetails, handleApplyEdit: Function}) => {
+  const {entry, handleApplyEdit} = props;
   const [isEditable, setIsEditable] = useState(false);
 
   const [title, setTitle] = useState(entry.title);
@@ -57,7 +57,13 @@ const Entry = (props: { entry: EntryBlockDetails}) => {
                     <p className='text-neutral-400'>{entry.date} {entry.day} | {entry.time}</p>
                 </div>
                 <div className='flex text-white text-[1.5rem] py-4 right-0 mx-5 fixed'>
-                    <FaCheck onClick={() => {setIsEditable(!isEditable)}} className='mx-5 hover:cursor-pointer text-neutral-300 hover:text-white'/>
+                    <FaCheck onClick={() => {
+                      setIsEditable(!isEditable);
+                      const updatedEntry = entry;
+                      updatedEntry.title = title;
+                      updatedEntry.content = content;
+                      handleApplyEdit(entry.id, updatedEntry);}} 
+                      className='mx-5 hover:cursor-pointer text-neutral-300 hover:text-white'/>
                     <MdDelete className='mx-5'/>
                 </div>
             </div>

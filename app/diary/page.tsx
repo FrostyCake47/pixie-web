@@ -37,6 +37,12 @@ const Diary = () => {
   const [selectedEntry, setSelectedEntry] = useState(initialEntry);
   const [entryList, setEntryList] = useState([initialEntry]);
   const [idTracker, setIdTracker] = useState(0);
+
+  const handleApplyEdit = (id:number, updatedEntry:EntryBlockDetails) => {
+    const updatedEntryList = entryList;
+    updatedEntryList[id] = updatedEntry;
+    setEntryList(updatedEntryList);
+  }
   
 
   const {user} = UserAuth();
@@ -82,7 +88,7 @@ const Diary = () => {
 
             {selectedEntry.id ? 
             (<div className='overflow-y-scroll'>
-              <Entry entry={selectedEntry} />
+              <Entry entry={selectedEntry} handleApplyEdit={handleApplyEdit} />
             </div>) : 
             (
               <div className='px-[calc((100vw-650px)/2)] flex flex-col justify-center items-center'>
