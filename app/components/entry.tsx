@@ -67,7 +67,7 @@ const Entry = (props: { entry: EntryBlockDetails, handleApplyEdit: Function}) =>
                     <MdDelete className='mx-5'/>
                 </div>
             </div>
-            <textarea value={content} onChange={(e) => {setContent(e.target.value)}} className='text-neutral-200 py-[30px] bg-transparent border-none focus:outline-none w-[calc(100vw-450px)]'/>
+            <textarea value={content} onChange={(e) => {setContent(e.target.value)}} className='text-neutral-200 py-[30px] bg-transparent border-none focus:outline-none w-[calc(100vw-450px)] transition-all-[80ms]'/>
           </form>
       </div>)
       
