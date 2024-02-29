@@ -37,17 +37,6 @@ const Diary = () => {
   const [selectedEntry, setSelectedEntry] = useState(initialEntry);
   const [entryList, setEntryList] = useState([initialEntry]);
   const [idTracker, setIdTracker] = useState(0);
-
-  const handleApplyEdit = (id:number, updatedEntry:EntryBlockDetails) => {
-    const updatedEntryList = entryList;
-    for(var i=0; i < updatedEntryList.length; i++){
-      if(updatedEntryList[i].id == updatedEntry.id) updatedEntryList[i] = updatedEntry;
-    }
-    console.log(updatedEntryList)
-    setEntryList(updatedEntryList);
-  }
-  
-
   const {user} = UserAuth();
   if(user) console.log(user.uid);
 
@@ -57,12 +46,26 @@ const Diary = () => {
     }
   }
 
-
-
   async function getUser() {
     const ref = doc(db, "users", user.uid);
     const userDoc = await getDoc(ref);
     return userDoc.data();
+  }
+
+  const handleApplyEdit = (id:number, updatedEntry:EntryBlockDetails) => {
+    const updatedEntryList = entryList;
+    for(var i=0; i < updatedEntryList.length; i++){
+      if(updatedEntryList[i].id == updatedEntry.id) updatedEntryList[i] = updatedEntry;
+    }
+    console.log(updatedEntryList)
+    setEntryList(updatedEntryList);
+  }
+
+  const handleDelete = (id:number) => {
+    const updatedEntryList = entryList.filter((entry) => entry.id != id)
+    setEntryList(updatedEntryList);
+    setSelectedEntry(initialEntry);
+    console.log("deleted entry " + selectedEntry.id);
   }
 
   useEffect( () => {
@@ -91,7 +94,7 @@ const Diary = () => {
 
             {selectedEntry.id ? 
             (<div className='overflow-y-scroll'>
-              <Entry entry={selectedEntry} handleApplyEdit={handleApplyEdit} />
+              <Entry entry={selectedEntry} handleApplyEdit={handleApplyEdit} handleDelete={handleDelete}/>
             </div>) : 
             (
               <div className='px-[calc((100vw-650px)/2)] flex flex-col justify-center items-center'>

@@ -17,8 +17,8 @@ interface EntryBlockDetails{
 }
 
 
-const Entry = (props: { entry: EntryBlockDetails, handleApplyEdit: Function}) => {
-  const {entry, handleApplyEdit} = props;
+const Entry = (props: { entry: EntryBlockDetails, handleApplyEdit: Function, handleDelete: Function}) => {
+  const {entry, handleApplyEdit, handleDelete} = props;
   const [isEditable, setIsEditable] = useState(false);
 
   const [title, setTitle] = useState(entry.title);
@@ -43,7 +43,7 @@ const Entry = (props: { entry: EntryBlockDetails, handleApplyEdit: Function}) =>
               </div>
               <div className='flex text-white text-[1.5rem] py-4 right-0 mx-5 fixed'>
                   <MdModeEdit onClick={() => {setIsEditable(!isEditable)}} className='mx-5 hover:cursor-pointer text-neutral-300 hover:text-white'/>
-                  <MdDelete className='mx-5'/>
+                  <MdDelete onClick={() => {handleDelete(entry.id); console.log("clicked delted button");}} className='mx-5 hover:cursor-pointer text-neutral-300 hover:text-white'/>
               </div>
           </div>
           <p className='text-neutral-200 py-[30px]'>{content}</p>
@@ -64,7 +64,6 @@ const Entry = (props: { entry: EntryBlockDetails, handleApplyEdit: Function}) =>
                       updatedEntry.content = content;
                       handleApplyEdit(entry.id, updatedEntry);}} 
                       className='mx-5 hover:cursor-pointer text-neutral-300 hover:text-white'/>
-                    <MdDelete className='mx-5'/>
                 </div>
             </div>
             <textarea value={content} onChange={(e) => {setContent(e.target.value)}} className='text-neutral-200 py-[30px] bg-transparent border-none focus:outline-none w-[calc(100vw-450px)] transition-all-[80ms]'/>
