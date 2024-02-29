@@ -18,7 +18,7 @@ export default function Home() {
                   <h1 className="pixie">Pixie</h1>
               </div>
               <p className='intro'>Whether you're seeking a space to pour out your deepest thoughts, celebrate moments of joy and triumph, or simply unwind and reflect on the day's events, Pixie is here to accompany you on your journey.</p>
-              <Link href='/login' className='text-black text-[20px shadow-2xl py-[10px] px-[15px] opacity-100 my-4 rounded-lg transition ease-in-out delay-150 bg-neutral-300 hover:-translate-y-1 hover:scale-110 hover:bg-neutral-400 duration-300'>Get started</Link>
+              <Link href='/login' className='text-black text-[20px shadow-2xl py-[10px] px-[15px] opacity-100 my-4 rounded-lg transition ease-in-out delay-150 bg-neutral-200 hover:-translate-y-1 hover:scale-110 hover:bg-neutral-100 duration-300'>Get started</Link>
             </div>
           </div>
         </div>

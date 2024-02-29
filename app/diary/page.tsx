@@ -40,7 +40,10 @@ const Diary = () => {
 
   const handleApplyEdit = (id:number, updatedEntry:EntryBlockDetails) => {
     const updatedEntryList = entryList;
-    updatedEntryList[id] = updatedEntry;
+    for(var i=0; i < updatedEntryList.length; i++){
+      if(updatedEntryList[i].id == updatedEntry.id) updatedEntryList[i] = updatedEntry;
+    }
+    console.log(updatedEntryList)
     setEntryList(updatedEntryList);
   }
   
