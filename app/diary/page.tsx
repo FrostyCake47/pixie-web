@@ -40,6 +40,7 @@ const Diary = () => {
   const {user} = UserAuth();
   if(user) console.log(user.uid);
 
+
   const handleSelection = (id:number) => {
     for(var i=0; i<entryList.length; i++){
       if(entryList[i].id == id) setSelectedEntry(entryList[i]);
@@ -54,11 +55,25 @@ const Diary = () => {
 
   const handleApplyEdit = (id:number, updatedEntry:EntryBlockDetails) => {
     const updatedEntryList = entryList;
+    let entryExist = false;
+
     for(var i=0; i < updatedEntryList.length; i++){
-      if(updatedEntryList[i].id == updatedEntry.id) updatedEntryList[i] = updatedEntry;
+      if(updatedEntryList[i].id == updatedEntry.id){
+        updatedEntryList[i] = updatedEntry;
+        entryExist = true;
+      } 
     }
-    console.log(updatedEntryList)
-    setEntryList(updatedEntryList);
+
+    if(entryExist) setEntryList(updatedEntryList)
+    else {
+      const oldID = idTracker;
+      setIdTracker(idTracker => idTracker+1);
+      oldID != idTracker ? updatedEntry.id = idTracker : updatedEntry.id = idTracker+1;
+      updatedEntryList[updatedEntryList.length -1] = updatedEntry;
+      console.log(updatedEntryList);
+      setEntryList(updatedEntryList);
+    }
+    
   }
 
   const handleDelete = (id:number) => {
@@ -69,7 +84,13 @@ const Diary = () => {
   }
 
   const handleAddNewEntry = () => {
+    const newEntry = initialEntry;
 
+    /*setIdTracker(idTracker => idTracker+1);
+    oldID != idTracker ? newEntry.id = idTracker : newEntry.id = idTracker+1;*/
+
+    newEntry.id = -1;
+    setSelectedEntry(newEntry);
   }
 
   useEffect( () => {
@@ -79,11 +100,12 @@ const Diary = () => {
         if(userData){
           const _arr: EntryBlockDetails[] = Object.keys(userData.entryblocks).map(key => userData.entryblocks[key])
           setIdTracker(userData.idtracker);
+          console.log(userData.idtracker)
           setEntryList(_arr);
         }
       })
     }
-  }, [user]);
+  }, []);
 
   return (
     <div>
@@ -91,11 +113,10 @@ const Diary = () => {
           <div className='flex flex-row bg-neutral-800 h-screen max-h-[calc(100vh-50px)]'>
             <div className='flex flex-col'>
               <div className='flex flex-row mx-2 py-2 my-3 rounded-[10px] items-center justify-center w-[350px] bg-gradient-to-r from-zinc-500 to-zinc-600 shadow-lg shadow-neutral-700/50 transition ease-in-out hover:from-zinc-400 hover:to-zinc-600 duration-300'>
-                <button className='text-white cursor-pointe'>New Entry</button>
+                <button onClick={handleAddNewEntry} className='text-white cursor-pointe'>New Entry</button>
               </div>
               <div className='px-2 border-neutral-500 overflow-y-scroll min-w-[380px]'>
                   {entryList.toReversed().map((entry) => {
-                    console.log(entry)
                     return <EntryBlock entry={entry} handleSelection={handleSelection}></EntryBlock>
                   })}
               </div>
