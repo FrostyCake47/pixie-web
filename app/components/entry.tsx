@@ -43,7 +43,7 @@ const Entry = (props: { entry: EntryBlockDetails, handleApplyEdit: Function, han
               </div>
               <div className='flex text-white text-[1.5rem] py-4 right-0 mx-5 fixed'>
                   <MdModeEdit onClick={() => {setIsEditable(!isEditable)}} className='mx-5 hover:cursor-pointer text-neutral-300 hover:text-white'/>
-                  <MdDelete onClick={() => {handleDelete(entry.id); console.log("clicked delted button");}} className='mx-5 hover:cursor-pointer text-neutral-300 hover:text-white'/>
+                  <MdDelete onClick={() => {handleDelete(entry.id)}} className='mx-5 hover:cursor-pointer text-neutral-300 hover:text-white'/>
               </div>
           </div>
           <p className='text-neutral-200 py-[30px]'>{content}</p>
