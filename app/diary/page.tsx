@@ -69,7 +69,7 @@ const Diary = () => {
       const oldID = idTracker;
       setIdTracker(idTracker => idTracker+1);
       oldID != idTracker ? updatedEntry.id = idTracker : updatedEntry.id = idTracker+1;
-      updatedEntryList[updatedEntryList.length -1] = updatedEntry;
+      updatedEntryList.push(updatedEntry);
       console.log(updatedEntryList);
       setEntryList(updatedEntryList);
     }
@@ -85,10 +85,6 @@ const Diary = () => {
 
   const handleAddNewEntry = () => {
     const newEntry = initialEntry;
-
-    /*setIdTracker(idTracker => idTracker+1);
-    oldID != idTracker ? newEntry.id = idTracker : newEntry.id = idTracker+1;*/
-
     newEntry.id = -1;
     setSelectedEntry(newEntry);
   }
@@ -100,8 +96,8 @@ const Diary = () => {
         if(userData){
           const _arr: EntryBlockDetails[] = Object.keys(userData.entryblocks).map(key => userData.entryblocks[key])
           setIdTracker(userData.idtracker);
-          console.log(userData.idtracker)
           setEntryList(_arr);
+          console.log("user data fetched again");
         }
       })
     }
