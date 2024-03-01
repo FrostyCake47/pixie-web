@@ -48,12 +48,6 @@ const Diary = () => {
     }
   }
 
-  async function getUser() {
-    const ref = doc(db, "users", user.uid);
-    const userDoc = await getDoc(ref);
-    return userDoc.data();
-  }
-
   const handleApplyEdit = (id:number, updatedEntry:EntryBlockDetails) => {
     const updatedEntryList = entryList;
     let entryExist = false;
@@ -70,11 +64,14 @@ const Diary = () => {
       const oldID = idTracker;
       setIdTracker(idTracker => idTracker+1);
       oldID != idTracker ? updatedEntry.id = idTracker : updatedEntry.id = idTracker+1;
+      updatedEntry.subtitle = updatedEntry.content.substring(0, 40);
       updatedEntryList.push(updatedEntry);
       console.log(updatedEntryList);
       setEntryList(updatedEntryList);
     }
     
+    uploadData();
+    console.log("uploaded data");
   }
 
   const handleDelete = (id:number) => {
@@ -93,6 +90,25 @@ const Diary = () => {
     initialEntry.day = day;
     newEntry.id = -1;
     setSelectedEntry(newEntry);
+  }
+
+  async function getUser() {
+    const ref = doc(db, "users", user.uid);
+    const userDoc = await getDoc(ref);
+    return userDoc.data();
+  }
+
+
+  async function uploadData() {
+    const data = {"entryblocks" : entryList, "idtracker" : idTracker}
+    console.log(data);
+      try {
+        const result = await setDoc(doc(db, 'users', user.uid), data, {
+            merge: true,
+        });
+    } catch (e) {
+        console.log(e);
+    }
   }
 
   useEffect( () => {
