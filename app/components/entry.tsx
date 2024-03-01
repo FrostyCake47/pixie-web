@@ -33,6 +33,7 @@ const Entry = (props: { entry: EntryBlockDetails, handleApplyEdit: Function, han
     setContent(entry.content);
   }, [entry]);
 
+  console.log(entry.date)
   return (
       !isEditable ? (
         <div className='flex flex-col px-10 py-8'>
