@@ -59,7 +59,9 @@ const Diary = () => {
       } 
     }
 
-    if(entryExist) setEntryList(updatedEntryList)
+    if(entryExist){
+      setEntryList(updatedEntryList)
+    }
     else {
       const oldID = idTracker;
       setIdTracker(idTracker => idTracker+1);
@@ -70,7 +72,7 @@ const Diary = () => {
       setEntryList(updatedEntryList);
     }
     
-    uploadData();
+    uploadData(); 
     console.log("uploaded data");
   }
 
@@ -100,7 +102,7 @@ const Diary = () => {
 
 
   async function uploadData() {
-    const data = {"entryblocks" : entryList, "idtracker" : idTracker}
+    const data = {"entryblocks" : entryList, "idtracker" : idTracker+1}
     console.log(data);
       try {
         const result = await setDoc(doc(db, 'users', user.uid), data, {
