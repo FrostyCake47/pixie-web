@@ -5,6 +5,7 @@ import {Lavishly_Yours } from "next/font/google";
 import { UserAuth } from '../context/AuthContext';
 import ProfileIcon from './profileIcon';
 import { useRouter } from 'next/navigation';
+import NavLink from './navlink';
 
 
 const LavishlyYours = Lavishly_Yours({weight: "400", subsets: ["latin"]});
@@ -42,21 +43,21 @@ const NavBar = () => {
           <div className={LavishlyYours.className}>
             <h1 className="pixie">Pixie</h1>
           </div>
-          {user && (<p className='mx-[20px] mt-2'>{user.displayName}</p>)}
-          
         </div>
 
         <div className='navbar-links'>
             {!user ? 
             (<div>
-              <Link href='/' className="nav-link">Home</Link>
-              <Link href='/login' className="nav-link">Login</Link>
-              <Link href='/about' className="nav-link">About</Link>
+              <NavLink href='/' text='Home'></NavLink>
+              <NavLink href='/login' text='Login'></NavLink>
+              <NavLink href='/about' text='About'></NavLink>
+              
             </div>) : 
             (<div className='flex items-center'>
-              <Link href='/diary' className="nav-link">Diary</Link>
-              <Link href='/' className="nav-link">Home</Link>
-              <Link href='/about' className="nav-link">About</Link>
+              <NavLink href='/diary' text='Diary'></NavLink>
+              <NavLink href='/' text='Home'></NavLink>
+              <NavLink href='/about' text='About'></NavLink>
+
               <div className=''>
                 <ProfileIcon photoURL={user.photoURL} displayName={user.displayName} signOut={handleSignOut}/>
               </div>
