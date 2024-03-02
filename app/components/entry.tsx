@@ -40,7 +40,7 @@ const Entry = (props: {entry: EntryBlockDetails, handleApplyEdit: Function, hand
         <div className='flex flex-col px-10 py-12'>
           <div className={`flex justify-between item-center ${sideBarActive ? 'w-[calc(100vw-450px)]' : 'w-[95vw]'}`}>
               <div>
-                  <h1 className='text-white text-[30px]'>{title} {entry.id}</h1>
+                  <h1 className='text-white text-[30px]'>{title}</h1>
                   <p className='text-neutral-400'>{entry.date} {entry.day} | {entry.time}</p>
               </div>
               <div className='flex text-white text-[1.5rem] py-4 right-0 mx-5'>
@@ -76,4 +76,3 @@ const Entry = (props: {entry: EntryBlockDetails, handleApplyEdit: Function, hand
 }
 
 export default Entry
-
