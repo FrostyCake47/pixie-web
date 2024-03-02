@@ -39,7 +39,7 @@ const NavBar = () => {
 
   return (
     <nav className="navbar">
-        <div className='flex justify-center items-center'>
+        <div className='flex flex-row mx-2 py-1 my-3 rounded-[10px] items-center justify-center px-5 bg-transparent'>
           <div className={LavishlyYours.className}>
             <h1 className="pixie">Pixie</h1>
           </div>
