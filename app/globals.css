@@ -69,15 +69,7 @@ nav.navbar{
   min-height: 90vh;
 }
 
-@media (width <= 720px) {
-  .login {
-    flex-direction: column;
-  }
 
-  .login form{
-    border-radius: 5vw;
-  }
-}
 
 .login-left{
   display: flex;
@@ -94,7 +86,7 @@ nav.navbar{
 
 .login .intro{
   color: white;
-  text-align: start;
+  text-align: center;
 }
 
 
@@ -114,7 +106,8 @@ nav.navbar{
   padding: 30px 50px;
   /*padding-top: calc((100vh - 90vh) / 2);
   padding-bottom: calc((100vh - 90vh) / 2);*/
-  margin-right: 5vw;
+  margin-left: 3vw;
+  margin-right: 3vw;
   min-height: calc(100vh - 50px);
 }
 
@@ -180,6 +173,35 @@ form h2{
   margin-top: 1rem;
   border-radius: 0.5rem;
   padding: 0.3rem 1rem;
+}
+
+@media (width <= 720px) {
+  .login {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    margin: 0;
+  }
+
+  .login form{
+    border-radius: 0vw;
+    width: 100vw;
+  }
+
+  .login-left{
+    width: 50vw;
+  }
+
+  .login .pixie{
+    font-size: 40vw;
+  }
+
+  .login .intro{
+    width: 80vw;
+    padding-bottom: 2rem;
+  }
+  
 }
 
 /*DIARY*/

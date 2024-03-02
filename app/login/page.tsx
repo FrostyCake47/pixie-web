@@ -38,7 +38,7 @@ const Login = () => {
             <p className='intro'>Whether you're seeking a space to pour out your deepest thoughts, celebrate moments of joy and triumph, or simply unwind and reflect on the day's events, Pixie is here to accompany you on your journey.</p>
           </div>
         
-          <form>
+          <form className=''>
             <h1 className="login-intro">Welcome back</h1>
             <h2 className="login-intro-2">Login in to continue with the journey</h2>
             <div>

@@ -47,11 +47,10 @@ const NavBar = () => {
 
         <div className='navbar-links'>
             {!user ? 
-            (<div>
+            (<div className='flex items-center'>
               <NavLink href='/' text='Home'></NavLink>
               <NavLink href='/login' text='Login'></NavLink>
               <NavLink href='/about' text='About'></NavLink>
-              
             </div>) : 
             (<div className='flex items-center'>
               <NavLink href='/diary' text='Diary'></NavLink>
