@@ -8,7 +8,7 @@ const ProfileIcon = (props: { photoURL: string, displayName: string, signOut: Fu
 
     return (
         <div className='flex flex-col'>
-            <img src={photoURL} alt="" className='min-w-8 min-h-8 mx-2 rounded-full ' onClick={() => {
+            <img src={photoURL} alt="" className='min-w-8 w-8 min-h-8 h-8 mx-2 rounded-full ' onClick={() => {
                 setIsVisible(!isVisible)}}/>
 
             <div>

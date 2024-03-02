@@ -32,7 +32,7 @@ const Entry = (props: {entry: EntryBlockDetails, handleApplyEdit: Function, hand
     setTitle(entry.title);
     setContent(entry.content);
     setIsEditable(false);
-  }, []);
+  }, [entry]);
 
   console.log(entry.date)
   return (
