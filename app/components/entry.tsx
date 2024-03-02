@@ -17,8 +17,8 @@ interface EntryBlockDetails{
 }
 
 
-const Entry = (props: { entry: EntryBlockDetails, handleApplyEdit: Function, handleDelete: Function}) => {
-  const {entry, handleApplyEdit, handleDelete} = props;
+const Entry = (props: {entry: EntryBlockDetails, handleApplyEdit: Function, handleDelete: Function, sideBarActive: boolean}) => {
+  const {entry, handleApplyEdit, handleDelete, sideBarActive} = props;
   const [isEditable, setIsEditable] = useState(false);
 
   const [title, setTitle] = useState(entry.title);
@@ -32,18 +32,18 @@ const Entry = (props: { entry: EntryBlockDetails, handleApplyEdit: Function, han
     setTitle(entry.title);
     setContent(entry.content);
     setIsEditable(false);
-  }, [entry]);
+  }, []);
 
   console.log(entry.date)
   return (
       !isEditable ? (
         <div className='flex flex-col px-10 py-12'>
-          <div className='flex justify-between item-center'>
+          <div className={`flex justify-between item-center ${sideBarActive ? 'w-[calc(100vw-450px)]' : 'w-[95vw]'}`}>
               <div>
                   <h1 className='text-white text-[30px]'>{title} {entry.id}</h1>
                   <p className='text-neutral-400'>{entry.date} {entry.day} | {entry.time}</p>
               </div>
-              <div className='flex text-white text-[1.5rem] py-4 right-0 mx-5 fixed'>
+              <div className='flex text-white text-[1.5rem] py-4 right-0 mx-5'>
                   <MdModeEdit onClick={() => {setIsEditable(!isEditable)}} className='mx-5 hover:cursor-pointer text-neutral-300 hover:text-white'/>
                   <MdDelete onClick={() => {handleDelete(entry.id)}} className='mx-5 hover:cursor-pointer text-neutral-300 hover:text-white'/>
               </div>
@@ -51,7 +51,7 @@ const Entry = (props: { entry: EntryBlockDetails, handleApplyEdit: Function, han
           <p className='text-neutral-200 py-[30px]'>{content}</p>
       </div>
       ) : (
-        <div className='flex flex-col px-10 py-12'>
+        <div className='flex flex-col px-10 pt-12'>
           <form>
             <div className='flex justify-between item-center'>
                 <div>
@@ -68,7 +68,7 @@ const Entry = (props: { entry: EntryBlockDetails, handleApplyEdit: Function, han
                       className='mx-5 hover:cursor-pointer text-neutral-300 hover:text-white'/>
                 </div>
             </div>
-            <textarea value={content} onChange={(e) => {setContent(e.target.value)}} className='text-neutral-200 py-[30px] bg-transparent border-none focus:outline-none w-[calc(100vw-450px)] transition-all-[80ms]'/>
+            <textarea cols={20} rows={18} value={content} onChange={(e) => {setContent(e.target.value)}} className={`text-neutral-200 pt-[30px] resize-none bg-transparent border-none h-full pb-8 ${sideBarActive ? 'w-[calc(100vw-450px)]' : 'w-[95vw]'}  overflow-x-clip focus:outline-none transition-all-[80ms]`}/> {/*w-[calc(100vw-450px)]*/}
           </form>
       </div>)
       

@@ -156,13 +156,15 @@ const Diary = () => {
 
             {selectedEntry.id ? 
             (<div className='overflow-y-scroll'>
-              <Entry entry={selectedEntry} handleApplyEdit={handleApplyEdit} handleDelete={handleDelete}/>
+              <Entry entry={selectedEntry} handleApplyEdit={handleApplyEdit} handleDelete={handleDelete} sideBarActive={sideBarActive}/>
             </div>) : 
             (
-              <div className='px-[calc((100vw-650px)/2)] flex flex-col justify-center items-center'>
+              <div className='flex flex-col items-center justify-center w-[100vw]'>
                 <div className={LavishlyYours.className}>
                    <h1 className="pixie-diary">Pixie</h1>
                  </div>
+                 <p className='text-white font-sans text-lg'>Start by creating an entry</p>
+                 <p className='text-white font-sans text-lg'>Or reading out your own memory</p>
               </div>
             )}
             

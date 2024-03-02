@@ -56,15 +56,15 @@ const Login = () => {
               </div>
             </div>
         
-            <button className='login-btn'>Login</button>
+            <button className='bg-neutral-200 text-black mt-[1rem] rounded-[0.5rem] px-4 py-1 transition-transform duration-300 ease-in-out transform hover:scale-110'>Login</button>
         
             <div className='flex'>
               <p className='pt-5 text-sm'>Or continue with</p>
             </div>
             
             <div className='flex flex-row pt-6 px-5 place-content-evenly'>
-              <FcGoogle onClick={handleSignIn} className='size-10 mx-6 cursor-pointer'/>
-              <FaApple className='size-10 mx-6 cursor-pointer'/>
+              <FcGoogle onClick={handleSignIn} className='size-10 mx-6 cursor-pointer transition-transform duration-300 ease-in-out transform hover:scale-110'/>
+              <FaApple className='size-10 mx-6 cursor-pointer transition-transform duration-300 ease-in-out transform hover:scale-110'/>
             </div>
           </form>
         </div>
