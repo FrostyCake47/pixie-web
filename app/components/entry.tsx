@@ -31,12 +31,13 @@ const Entry = (props: { entry: EntryBlockDetails, handleApplyEdit: Function, han
   useEffect(() => {
     setTitle(entry.title);
     setContent(entry.content);
+    setIsEditable(false);
   }, [entry]);
 
   console.log(entry.date)
   return (
       !isEditable ? (
-        <div className='flex flex-col px-10 py-8'>
+        <div className='flex flex-col px-10 py-12'>
           <div className='flex justify-between item-center'>
               <div>
                   <h1 className='text-white text-[30px]'>{title} {entry.id}</h1>
@@ -50,7 +51,7 @@ const Entry = (props: { entry: EntryBlockDetails, handleApplyEdit: Function, han
           <p className='text-neutral-200 py-[30px]'>{content}</p>
       </div>
       ) : (
-        <div className='flex flex-col px-10 py-8'>
+        <div className='flex flex-col px-10 py-12'>
           <form>
             <div className='flex justify-between item-center'>
                 <div>

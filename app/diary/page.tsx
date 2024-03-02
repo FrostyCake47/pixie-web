@@ -9,6 +9,7 @@ import { doc, setDoc } from "firebase/firestore";
 import { db } from '../firebase';
 import { Lavishly_Yours } from 'next/font/google';
 import { getCurrentTimeAndDate } from '../services/getCurrentTimeAndDate';
+import { FaArrowLeft } from "react-icons/fa";
 
 
 interface EntryBlockDetails{
@@ -38,6 +39,7 @@ const Diary = () => {
   const [selectedEntry, setSelectedEntry] = useState(initialEntry);
   const [entryList, setEntryList] = useState([initialEntry]);
   const [idTracker, setIdTracker] = useState(0);
+  const [sideBarActive, setSideBarActive] = useState(true);
   const {user} = UserAuth();
   if(user) console.log(user.uid);
 
@@ -136,11 +138,16 @@ const Diary = () => {
     <div>
         {user ? (
           <div className='flex flex-row bg-neutral-800 h-screen max-h-[calc(100vh-50px)]'>
-            <div className='flex flex-col'>
-              <div  onClick={handleAddNewEntry} className='flex flex-row mx-2 py-2 my-3 rounded-[10px] items-center justify-center w-[350px] bg-gradient-to-r from-zinc-500 to-zinc-600 shadow-lg shadow-neutral-700/50 transition ease-in-out hover:from-zinc-400 hover:to-zinc-600 duration-300 cursor-pointer'>
-                <div className='text-white'>New Entry</div>
+            <div className={`flex flex-col transition-transform duration-300 ${sideBarActive ? ' ' : 'translate-x-[-320px] fixed'}`}>
+              <div className='flex'>
+                <div  onClick={handleAddNewEntry} className='flex flex-row mx-2 py-2 my-3 rounded-[10px] items-center justify-center w-[300px] bg-gradient-to-r from-zinc-500 to-zinc-600 shadow-lg shadow-neutral-700/50 transition ease-in-out hover:from-zinc-400 hover:to-zinc-600 duration-300 cursor-pointer'>
+                  <div className='text-white'>New Entry</div>
+                </div>
+                <div  onClick={() => {setSideBarActive(!sideBarActive)}} className={`flex flex-row mx-2 py-2 my-3 rounded-[10px] items-center justify-center w-[50px] bg-gradient-to-r from-zinc-500 to-zinc-600 shadow-lg shadow-neutral-700/50 transition ease-in-out hover:from-zinc-400 hover:to-zinc-600 duration-300 cursor-pointer ${sideBarActive ? '' : 'rotate-180'}`}>
+                  <FaArrowLeft/>
+                </div>
               </div>
-              <div className='px-2 border-neutral-500 overflow-y-scroll min-w-[380px]'>
+              <div className={`px-2 border-neutral-500 overflow-y-scroll min-w-[380px] ${sideBarActive ? '' : 'hidden'}`}>
                   {entryList.toReversed().map((entry) => {
                     return <EntryBlock entry={entry} handleSelection={handleSelection}></EntryBlock>
                   })}
