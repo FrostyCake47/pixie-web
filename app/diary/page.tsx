@@ -148,7 +148,7 @@ const Diary = () => {
                 </div>
               </div>
               <div className={`px-2 border-neutral-500 overflow-y-scroll min-w-[380px] ${sideBarActive ? '' : 'hidden'}`}>
-                  {entryList.toReversed().map((entry) => {
+                  {entryList[0] && entryList.toReversed().map((entry) => {
                     return <div key={entry.id}>
                       <EntryBlock entry={entry} handleSelection={handleSelection}></EntryBlock>
                     </div>
