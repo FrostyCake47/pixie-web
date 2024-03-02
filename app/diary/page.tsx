@@ -94,12 +94,6 @@ const Diary = () => {
     setSelectedEntry(newEntry);
   }
 
-  async function getUser() {
-    const ref = doc(db, "users", user.uid);
-    const userDoc = await getDoc(ref);
-    return userDoc.data();
-  }
-
 
   async function uploadData() {
     const data = {"entryblocks" : entryList, "idtracker" : idTracker+1}
@@ -113,6 +107,12 @@ const Diary = () => {
     }
   }
 
+  async function getUser() {
+    const ref = doc(db, "users", user.uid);
+    const userDoc = await getDoc(ref);
+    return userDoc.data();
+  }
+
   useEffect( () => {
     if(user){
       const data = getUser();
@@ -122,6 +122,11 @@ const Diary = () => {
           setIdTracker(userData.idtracker);
           setEntryList(_arr);
           console.log("user data fetched again");
+        }
+        else{
+          setIdTracker(0);
+          setEntryList([]);
+          console.log("created new user");
         }
       })
     }
