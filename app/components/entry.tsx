@@ -71,7 +71,6 @@ const Entry = (props: {entry: EntryBlockDetails, handleApplyEdit: Function, hand
             <textarea cols={20} rows={18} value={content} onChange={(e) => {setContent(e.target.value)}} className={`text-neutral-200 pt-[30px] resize-none bg-transparent border-none h-full pb-8 ${sideBarActive ? 'w-[calc(100vw-450px)]' : 'w-[95vw]'}  overflow-x-clip focus:outline-none transition-all-[80ms]`}/> {/*w-[calc(100vw-450px)]*/}
           </form>
       </div>)
-      
   )
 }
 

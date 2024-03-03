@@ -137,7 +137,7 @@ const Diary = () => {
   return (
     <div className='bg-neutral-800 overflow-auto'>
         {user ? (
-          <div className='flex flex-col md:flex-row bg-neutral-800 h-screen max-h-[calc(100vh-50px)]'>
+          <div className='flex flex-col sm:flex-row bg-neutral-800 h-screen max-h-[calc(100vh-50px)]'>
             <div className={`flex flex-col transition-transform duration-300 ${sideBarActive ? ' ' : 'translate-x-[-320px] fixed'}`}>
               <div className='flex'>
                 <div  onClick={handleAddNewEntry} className='flex flex-row mx-2 py-2 my-3 rounded-[10px] items-center justify-center min-w-[300px] flex-1 bg-gradient-to-r from-zinc-500 to-zinc-600 shadow-lg shadow-neutral-700/50 transition ease-in-out hover:from-zinc-400 hover:to-zinc-600 duration-300 cursor-pointer'>
