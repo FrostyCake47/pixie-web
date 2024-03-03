@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter, Lavishly_Yours } from "next/font/google";
 import "./globals.css";
 import NavBar from "./components/navbar";
@@ -13,6 +13,13 @@ export const metadata = {
   description: "Your personal diary",
 };
 
+export const viewport: Viewport = {
+  themeColor: "#000000",
+  initialScale: 1,
+  width: "device-width",
+  maximumScale: 1,
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -21,7 +28,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <Head>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
       </Head>
       <body className={inter.className}>
           <BufferComponent>
