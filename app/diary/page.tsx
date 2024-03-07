@@ -138,7 +138,7 @@ const Diary = () => {
     <div className='bg-neutral-800 overflow-auto'>
         {user ? (
           <div className='flex flex-col sm:flex-row bg-neutral-800 h-screen max-h-[calc(100vh-50px)]'>
-            <div className={`flex flex-col transition-transform duration-300 ${sideBarActive ? ' ' : 'translate-x-[-320px] fixed'}`}>
+            <div className={`flex flex-col sm:max-w-[380px] items-center transition-transform duration-300 ${sideBarActive ? ' ' : 'translate-x-[-320px] fixed'}`}>
               <div className='flex'>
                 <div  onClick={handleAddNewEntry} className='flex flex-row mx-2 py-2 my-3 rounded-[10px] items-center justify-center min-w-[300px] flex-1 bg-gradient-to-r from-zinc-500 to-zinc-600 shadow-lg shadow-neutral-700/50 transition ease-in-out hover:from-zinc-400 hover:to-zinc-600 duration-300 cursor-pointer'>
                   <div className='text-white'>New Entry</div>
@@ -147,7 +147,7 @@ const Diary = () => {
                   <FaArrowLeft/>
                 </div>
               </div>
-              <div className={`px-2 border-neutral-500 overflow-y-scroll min-w-[380px] ${sideBarActive ? '' : 'hidden'}`}>
+              <div className={`px-2 border-neutral-500 overflow-y-scroll sm:min-w-[380px] ${sideBarActive ? '' : 'hidden'}`}>
                   {entryList[0] && entryList.toReversed().map((entry) => {
                     return <div key={entry.id}>
                       <EntryBlock entry={entry} handleSelection={handleSelection}></EntryBlock>
@@ -157,7 +157,7 @@ const Diary = () => {
             </div>
 
             {selectedEntry.id ? 
-            (<div className='overflow-y-scroll'>
+            (<div className={`overflow-y-scroll ${sideBarActive ? 'hidden' : ''}`}>
               <Entry entry={selectedEntry} handleApplyEdit={handleApplyEdit} handleDelete={handleDelete} sideBarActive={sideBarActive}/>
             </div>) : 
             (
@@ -172,7 +172,7 @@ const Diary = () => {
             
           </div>
       ) : (
-        <div className='flex flex-col bg-neutral-800 h-[calc(100vh-50px)] justify-center items-center'>
+        <div className={`flex flex-col bg-neutral-800 h-[calc(100vh-50px)] justify-center items-center ${sideBarActive ? 'hidden' : ''}`}>
           <div className='text-white text-3xl'>Please login to access this page</div>
         </div>
       )}

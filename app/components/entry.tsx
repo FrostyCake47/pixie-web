@@ -27,21 +27,7 @@ const Entry = (props: {entry: EntryBlockDetails, handleApplyEdit: Function, hand
   const [date, setDate] = useState(entry.date);
   const [time, setTime] = useState(entry.time);
   const [day, setDay] = useState(entry.day);
-  const [index, setIndex] = useState(0);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-        if (index < initialText.length) {
-            setContent(prevText => prevText + initialText[index]);
-            setIndex(prevIndex => prevIndex + 1);
-        } else {
-            clearInterval(interval);
-        }
-    }, 100); // Adjust the interval time as needed
-    return () => clearInterval(interval);
-  }, [index]);
-
-  const initialText = content;
 
   useEffect(() => {
     setTitle(entry.title);
