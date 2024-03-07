@@ -157,7 +157,7 @@ const Diary = () => {
             </div>
 
             {selectedEntry.id ? 
-            (<div className={`overflow-y-scroll ${sideBarActive ? 'hidden' : ''}`}>
+            (<div className={`overflow-y-scroll block ${!sideBarActive ? 'sm:hidden' : ''}`}>
               <Entry entry={selectedEntry} handleApplyEdit={handleApplyEdit} handleDelete={handleDelete} sideBarActive={sideBarActive}/>
             </div>) : 
             (
@@ -172,7 +172,7 @@ const Diary = () => {
             
           </div>
       ) : (
-        <div className={`flex flex-col bg-neutral-800 h-[calc(100vh-50px)] justify-center items-center ${sideBarActive ? 'hidden' : ''}`}>
+        <div className={`flex flex-col bg-neutral-800 h-[calc(100vh-50px)] justify-center items-center ${sideBarActive ? 'sm:block' : ''}`}>
           <div className='text-white text-3xl'>Please login to access this page</div>
         </div>
       )}
