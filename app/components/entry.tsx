@@ -52,14 +52,14 @@ const Entry = (props: {entry: EntryBlockDetails, handleApplyEdit: Function, hand
           <p className='text-neutral-200 py-[30px]'>{content}</p>
       </div>
       ) : (
-        <div className='flex flex-col px-10 pt-12'>
+        <div className='flex flex-col px-10 pt-12 overflow-x-hidden'>
           <form>
-            <div className='flex justify-between item-center'>
+            <div className={`flex justify-between item-center ${sideBarActive ? 'w-[calc(100vw-450px)]' : 'w-[90vw]'}`}>
                 <div>
-                    <input type='text' value={title} className='text-white text-[30px] bg-transparent border-none focus:outline-none w-[calc(100vw-450px)]' onChange={(e) => {setTitle(e.target.value)}}/>
+                    <input type='text' value={title} className='text-white text-[30px] bg-transparent border-none focus:outline-none w-[100vw] sm:w-[calc(100vw-450px)]' onChange={(e) => {setTitle(e.target.value)}}/>
                     <p className='text-neutral-400'>{entry.date} {entry.day} | {entry.time}</p>
                 </div>
-                <div className='flex text-white text-[1.5rem] py-4 right-0 mx-5 fixed'>
+                <div className='flex text-white text-[1.5rem] py-4 right-0 mx-5 fixed z-[1] bg-neutral-800'>
                     <FaCheck onClick={() => {
                       setIsEditable(!isEditable);
                       const updatedEntry = entry;
