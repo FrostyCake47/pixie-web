@@ -4,4 +4,5 @@
 - Firebase for auth and database
 
 ## Do you wanna try it out?
-[Pixie-web](https://pixie-web-two.vercel.app)
+[Pixie-web](https://pixie-web-two.vercel.app) <br/>
+[Pixie-mobile](https://github.com/FrostyCake47/Pixie---Personal-Diary)
