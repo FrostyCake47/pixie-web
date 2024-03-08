@@ -38,7 +38,7 @@ const Entry = (props: {entry: EntryBlockDetails, handleApplyEdit: Function, hand
   console.log(entry.date)
   return (
       !isEditable ? (
-        <div className='flex flex-col px-10 py-12'>
+        <div className='flex flex-col px-10 py-12 overflow-x-hidden'>
           <div className={`flex justify-between item-center ${sideBarActive ? 'w-[calc(100vw-450px)]' : 'w-[95vw]'}`}>
               <div>
                   <h1 className='text-white text-[30px]'>{title}</h1>
@@ -69,7 +69,7 @@ const Entry = (props: {entry: EntryBlockDetails, handleApplyEdit: Function, hand
                       className='mx-5 hover:cursor-pointer text-neutral-300 hover:text-white'/>
                 </div>
             </div>
-            <textarea cols={20} rows={18} value={content} onChange={(e) => {setContent(e.target.value)}} className={`text-neutral-200 pt-[30px] resize-none bg-transparent border-none h-full pb-8 ${sideBarActive ? 'w-[calc(100vw-450px)]' : 'w-[95vw]'}  overflow-x-clip focus:outline-none transition-all-[80ms]`}/> {/*w-[calc(100vw-450px)]*/}
+            <textarea cols={20} rows={18} value={content} onChange={(e) => {setContent(e.target.value)}} className={`text-neutral-200 pt-[30px] resize-none bg-transparent border-none h-full pb-8 ${sideBarActive ? 'w-[calc(100vw-450px)]' : 'w-[95vw]'}  overflow-x-hidden focus:outline-none transition-all-[80ms]`}/> {/*w-[calc(100vw-450px)]*/}
           </form>
       </div>)
   )
