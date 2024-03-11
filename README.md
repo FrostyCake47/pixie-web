@@ -1,5 +1,5 @@
 ![Screenshot](https://github.com/FrostyCake47/Pixie---Personal-Diary/blob/main/assets/pixieWide.png)
-# Pixie-web
+# Pixie web
 - This is the web version of the pixie app made using Next.js and React
 - Firebase for auth and database
 
