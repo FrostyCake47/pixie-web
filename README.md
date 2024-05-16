@@ -1,4 +1,4 @@
-![Screenshot](https://github.com/FrostyCake47/Pixie---Personal-Diary/blob/main/assets/pixieWide.png)
+![Screenshot](https://github.com/FrostyCake47/Pixie---Personal-Diary/blob/main/assets/PixieNew.png)
 # Pixie Web
 Personal diary app made using React and Next.js. <br>
 Pixie is a feature-rich personal diary app designed to keep your thoughts and memories safe and accessible. Built with Flutter for a seamless and responsive user experience across different platforms.
